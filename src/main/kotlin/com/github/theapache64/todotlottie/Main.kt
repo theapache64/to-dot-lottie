@@ -8,7 +8,7 @@ import java.net.URL
 
 fun main(args: Array<String>) = runBlocking {
     val projectDir = File(System.getProperty("user.dir"))
-
+    println("➡️ Initializing...")
     projectDir.walk()
         .forEach { jsonFile ->
             val isAndroidRawFile = !jsonFile.path.contains("/build/") &&
@@ -28,6 +28,8 @@ fun main(args: Array<String>) = runBlocking {
                 }
             }
         }
+
+    println("✅ Done")
 }
 
 suspend fun convertToDotLottie(

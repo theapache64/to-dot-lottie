@@ -170,3 +170,7 @@ gradle-app.setting
 # End of https://www.toptal.com/developers/gitignore/api/kotlin,intellij,gradle
 build
 gpm.json
+
+jdeploy-bundle
+jdeploy
+node_modules

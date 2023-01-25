@@ -5,10 +5,11 @@
   "main": "index.js",
   "preferGlobal": true,
   "repository": "https://github.com/theapache64/to-dot-lottie",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "jdeploy": {
     "jdk": false,
     "javaVersion": "11",
+    "jar": "out/artifacts/to_dot_lottie_main_jar/to-dot-lottie.main.jar",
     "javafx": false,
     "title": "to-dot-lottie"
   },
