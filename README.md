@@ -16,6 +16,37 @@
 sudo npm install -g to-dot-lottie
 ```
 
+### ✨Demo
+
+```console
+❯ to-dot-lottie
+➡️ Initializing...
+⚠️ Not a lottie JSON. Skipping ../core/string-store/src/main/res/raw/default_strings.json
+------------------------------
+🆙 Uploading 'skip.json...'
+✅ Uploaded -> https://assets3.lottiefiles.com/temp_editor_files/lf30_editor_555.json
+🔀 Converting 'https://assets3.lottiefiles.com/temp_editor_files/lf30_editor_555.json'...
+✅ Converted -> https://lottie-editor-api-temp.s3.amazonaws.com/20230125-205201lf30_editor_123.lottie
+⬇️ Downloading...
+✅ Downloaded -> ../core/common-ui/src/main/res/raw/skip.lottie
+------------------------------
+🆙 Uploading 'rewind.json...'
+✅ Uploaded -> https://assets7.lottiefiles.com/temp_editor_files/lf30_editor_444.json
+🔀 Converting 'https://assets7.lottiefiles.com/temp_editor_files/lf30_editor_444.json'...
+✅ Converted -> https://lottie-editor-api-temp.s3.amazonaws.com/20230125-205204lf30_editor_456.lottie
+⬇️ Downloading...
+✅ Downloaded -> ../core/common-ui/src/main/res/raw/rewind.lottie
+------------------------------
+🆙 Uploading 'subscription_confirmation.json...'
+✅ Uploaded -> https://assets5.lottiefiles.com/temp_editor_files/lf30_editor_222.json
+🔀 Converting 'https://assets5.lottiefiles.com/temp_editor_files/lf30_editor_222.json'...
+✅ Converted -> https://lottie-editor-api-temp.s3.amazonaws.com/20230125-205206lf30_editor_789.lottie
+⬇️ Downloading...
+✅ Downloaded -> ../core/common-ui/src/main/res/raw/subscription_confirmation.lottie
+------------------------------
+✅ Done
+```
+
 ## ✍️ Author
 
 👤 **theapache64**
