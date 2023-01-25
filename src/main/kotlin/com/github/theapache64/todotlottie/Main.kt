@@ -1,11 +1,12 @@
 package com.github.theapache64.todotlottie
 
+import kotlinx.coroutines.runBlocking
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
 
-suspend fun main(args: Array<String>) {
+fun main(args: Array<String>) = runBlocking {
     val projectDir = File(System.getProperty("user.dir"))
 
     projectDir.walk()

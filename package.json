@@ -1,0 +1,23 @@
+{
+  "bin": {"to-dot-lottie": "jdeploy-bundle/jdeploy.js"},
+  "author": "theapache64",
+  "description": "A CLI tool to bulk convert all .json lottie files to .lottie format",
+  "main": "index.js",
+  "preferGlobal": true,
+  "repository": "https://github.com/theapache64/to-dot-lottie",
+  "version": "1.0.0",
+  "jdeploy": {
+    "jdk": false,
+    "javaVersion": "11",
+    "javafx": false,
+    "title": "to-dot-lottie"
+  },
+  "dependencies": {
+    "njre": "^0.2.0",
+    "shelljs": "^0.8.4"
+  },
+  "license": "ISC",
+  "name": "to-dot-lottie",
+  "files": ["jdeploy-bundle"],
+  "scripts": {"test": "echo \"Error: no test specified\" && exit 1"}
+}
