@@ -1,6 +1,7 @@
 package com.github.theapache64.todotlottie
 
 import kotlinx.coroutines.runBlocking
+import org.json.JSONException
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
@@ -17,13 +18,17 @@ fun main(args: Array<String>) = runBlocking {
             if (
                 isAndroidRawFile // TODO || iOSLottieFile || webLottieFile
             ) {
-                val json = JSONObject(jsonFile.readText())
-                val isLottieJson = json.has("v")
-                if (isLottieJson) {
-                    convertToDotLottie(jsonFile)
-                    jsonFile.delete()
-                    println("------------------------------")
-                }else {
+                try {
+                    val json = JSONObject(jsonFile.readText())
+                    val isLottieJson = json.has("v")
+                    if (isLottieJson) {
+                        convertToDotLottie(jsonFile)
+                        jsonFile.delete()
+                        println("------------------------------")
+                    } else {
+                        println("⚠️ Not a lottie JSON. Skipping ${jsonFile.absolutePath}")
+                    }
+                } catch (e: JSONException) {
                     println("⚠️ Not a lottie JSON. Skipping ${jsonFile.absolutePath}")
                 }
             }
