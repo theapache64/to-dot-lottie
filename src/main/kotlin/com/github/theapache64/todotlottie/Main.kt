@@ -13,7 +13,7 @@ fun main(args: Array<String>) = runBlocking {
     projectDir.walk()
         .forEach { jsonFile ->
             val isAndroidRawFile = !jsonFile.path.contains("/build/") &&
-                    jsonFile.path.contains("/raw/") &&
+                    jsonFile.path.contains("/raw-?[a-zA-z\\-]*/".toRegex()) &&
                     jsonFile.extension == "json"
             if (
                 isAndroidRawFile // TODO || iOSLottieFile || webLottieFile
