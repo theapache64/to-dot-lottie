@@ -7,9 +7,10 @@ import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
 
+const val VERSION = "1.0.2" // TODO: Collect it from package.json
 fun main(args: Array<String>) = runBlocking {
     val projectDir = File(System.getProperty("user.dir"))
-    println("➡️ Initializing...")
+    println("➡️ Initializing... (v${VERSION})")
     projectDir.walk()
         .forEach { jsonFile ->
             val isAndroidRawFile = !jsonFile.path.contains("/build/") &&
