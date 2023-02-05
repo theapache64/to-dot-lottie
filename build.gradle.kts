@@ -1,5 +1,6 @@
-import org.jetbrains.kotlin.com.intellij.openapi.vfs.StandardFileSystems.jar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.konan.properties.Properties
+
 
 plugins {
     kotlin("jvm") version "1.7.10"
@@ -9,6 +10,28 @@ plugins {
 
 group = "com.github.theapache64"
 version = "1.0.2"
+
+val generatedVersionDir = "$buildDir/generated-version"
+sourceSets {
+    main {
+        kotlin {
+            output.dir(generatedVersionDir)
+        }
+    }
+}
+tasks.register("generateVersionProperties") {
+    doLast {
+        val propertiesFiles = file("$generatedVersionDir/version.properties")
+        propertiesFiles.parentFile.mkdirs()
+        val properties = Properties()
+        properties.setProperty("version", rootProject.version.toString())
+        properties.store(propertiesFiles.writer(), "current version")
+    }
+}
+
+tasks.named("processResources") {
+    dependsOn("generateVersionProperties")
+}
 
 repositories {
     mavenCentral()
@@ -27,10 +50,10 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
 
     // JSON In Java : JSON is a light-weight, language independent, data interchange format.See http://www.JSON.org/The
-	// files in this package implement JSON encoders/decoders in Java.It also includes
-	// the capability to convert between JSON and XML, HTTPheaders, Cookies, and CDL.This
-	// is a reference implementation. There is a large number of JSON packagesin Java.
-	// Perhaps someday the Java community will standardize on one. Untilthen, choose carefully.
+    // files in this package implement JSON encoders/decoders in Java.It also includes
+    // the capability to convert between JSON and XML, HTTPheaders, Cookies, and CDL.This
+    // is a reference implementation. There is a large number of JSON packagesin Java.
+    // Perhaps someday the Java community will standardize on one. Untilthen, choose carefully.
     implementation("org.json:json:20220924")
 }
 
