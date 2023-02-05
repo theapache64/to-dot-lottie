@@ -1,14 +1,22 @@
 package com.github.theapache64.todotlottie
 
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
+import java.util.*
 
-const val VERSION = "1.0.2" // TODO: Collect it from package.json
+private val versionProperties = Properties()
+lateinit var VERSION: String
 fun main(args: Array<String>) = runBlocking {
+    withContext(Dispatchers.IO) {
+        versionProperties.load(this.javaClass.getResourceAsStream("/version.properties"))
+    }
+    VERSION = versionProperties.getProperty("version", "null")
     val projectDir = File(System.getProperty("user.dir"))
     println("➡️ Initializing... (v${VERSION})")
     projectDir.walk()
